@@ -20,7 +20,7 @@ export default {
                 minZoom: 4,
                 maxZoom: 8,
             }).addTo(map);
-            
+
             this.addBrazilBoundaries(map);
             this.addMarkers(map);
         },
@@ -30,8 +30,8 @@ export default {
             const brazilBoundaryLayer = L.geoJSON(brazilBoundaryGeoJSON, {
                 style: {
                     color: "#010409",
-                    weight: 2,
-                    opacity: 1
+                    weight: 1,
+                    opacity: 0.5
                 }
             }).addTo(map);
 
@@ -57,13 +57,13 @@ export default {
                 const marker = L.marker([currentAirport.location.lat, currentAirport.location.long], {
                     icon: new L.DivIcon({
                         className: 'marker-icon',
-                        html: `<div class="marker-container" style="display: grid; grid-template-rows: 1fr auto; width: 30px; text-align: center;">
-                                    <img style="width: inherit; background-color: currentcolor; border: 1px solid white; border-top-right-radius: 0.4rem; border-top-left-radius: 0.4rem;" "class="marker-image" src="http://png-3.vector.me/files/images/4/0/402272/aiga_air_transportation_bg_thumb"/>
-                                    <span style="background: black; color: white; height: max-content; border: 1px solid white; border-bottom-left-radius: 0.4rem; border-bottom-right-radius: 0.4rem; border-top: none;"class="marker-span">${currentAirport.id}</span>
+                        html: `<div class="marker-container">
+                                    <div class="marker-image"></div>
+                                    <span class="marker-span">${currentAirport.id}</span>
                                 </div>`
                     })
                 }).bindPopup(markerPopupContent);
-                
+
                 airportCluster.addLayer(marker);
             }
 
@@ -73,7 +73,7 @@ export default {
 }
 </script>
   
-<style scoped>
+<style>
 .map-container {
     display: flex;
     justify-content: center;
@@ -85,5 +85,44 @@ export default {
     height: 45rem;
     border-radius: .5rem;
 }
+
+.marker-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: max-content;
+    text-align: center;
+}
+
+.marker-image {
+    border: 1px solid white;
+    border-top-right-radius: 0.4rem;
+    border-top-left-radius: 0.4rem;
+    background-color: #21262d;
+    border: 1px solid #7d8590;
+    background-image: url(http://localhost:8080/img/plane.b88fa1b6.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 1px;
+}
+
+.marker-span {
+    background: #21262d;
+    color: white;
+    height: max-content;
+    border: 1px solid #7d8590;
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+    border-top: none;
+    padding: 2px;
+    font-family: 'Roboto Mono';
+}
+
+.marker-container:hover {
+    transform: scale(1.2);
+    transition: all .25s;
+}
+.leaflet-popup-content {
+    font-family: 'Roboto Mono';
+    font-weight: 500;
+}
 </style>
-  
