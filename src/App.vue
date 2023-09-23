@@ -1,5 +1,8 @@
 <template>
-  <Map />
+  <HeaderPanel />
+  <div class="map-container">
+    <Map />
+  </div>
   <div class="github-repo">
     <a href="https://github.com/lucaszambam/vue-dijkstra" target="_blank">
       <img src="./assets/svg/github-mark-white.svg" alt="GitHub Repository" />
@@ -8,27 +11,37 @@
 </template>
 
 <script>
+import HeaderPanel from './components/HeaderPanel.vue';
 import Map from './components/Map.vue'
 
 export default {
   name: 'App',
   components: {
-    Map
-  }
+    Map,
+    HeaderPanel
+}
 }
 </script>
 
 <style>
 #app {
-  height: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Roboto Mono';
+}
+.map-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
-
 body {
   background-color: #0d1117;
-  height: 99vh;
+  min-height: 100vh;
+  margin: 0;
+  width: 100vw;
 }
 .github-repo {
 	position: fixed;
@@ -37,7 +50,7 @@ body {
 }
 .github-repo a img {
 	scale: 0.45;
-    opacity: 0.5;
+  opacity: 0.5;
 	transition: all .25s;
 }
 .github-repo a img:hover {
