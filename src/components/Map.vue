@@ -23,6 +23,7 @@ export default {
 
             this.addBrazilBoundaries(map);
             this.addMarkers(map);
+            this.addRoutes(map);
         },
 
         addBrazilBoundaries(map) {
@@ -68,6 +69,10 @@ export default {
             }
 
             map.addLayer(airportCluster);
+        },
+
+        addRoutes(map) {
+            L.polyline([[{lat: -29.9939, lng: -51.1711}, {lat: -29.1969, lng: -51.1872}]], {color: '#21262d'}).addTo(map);
         }
     },
 }
@@ -99,7 +104,7 @@ export default {
     border-top-left-radius: 0.4rem;
     background-color: #21262d;
     border: 1px solid #7d8590;
-    background-image: url(http://localhost:8080/img/plane.b88fa1b6.svg);
+    background-image: url(/src/assets/svg/plane.svg);
     background-repeat: no-repeat;
     background-position: center;
     padding: 1px;
