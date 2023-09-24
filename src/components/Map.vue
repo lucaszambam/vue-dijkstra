@@ -23,7 +23,6 @@ export default {
 
             this.addBrazilBoundaries(map);
             this.addMarkers(map);
-            this.addRoutes(map);
         },
 
         addBrazilBoundaries(map) {
@@ -53,9 +52,20 @@ export default {
                                             <span>${currentAirport.name}</span><br>
                                             <ul>
                                                 <li><strong>Latitude</strong>: ${currentAirport.location.lat}</li>
-                                                <li><strong>Longitude</strong>: ${currentAirport.location.long}</li>
+                                                <li><strong>Longitude</strong>: ${currentAirport.location.lng}</li>
                                             </ul>`;
-                const marker = L.marker([currentAirport.location.lat, currentAirport.location.long], {
+
+                currentAirport.destinations.map(function(id) {
+                    const destinationAirport = airports.find(airport => airport.id === id);
+
+                }, currentAirport);
+
+                for (let j = 0; j < currentAirport.destinations.length; j++) {
+                    const destinationAirport = airports.find(airport => airport.id === currentAirport.destinations[j]);
+                    this.addRoute(currentAirport, destinationAirport, map);
+                }
+
+                const marker = L.marker([currentAirport.location.lat, currentAirport.location.lng], {
                     icon: new L.DivIcon({
                         className: 'marker-icon',
                         html: `<div class="marker-container">
@@ -71,8 +81,15 @@ export default {
             map.addLayer(airportCluster);
         },
 
-        addRoutes(map) {
-            L.polyline([[{lat: -29.9939, lng: -51.1711}, {lat: -29.1969, lng: -51.1872}]], {color: '#21262d'}).addTo(map);
+        addRoute(origin, destination, map) {
+            const polyline = L.polyline([[origin.location, destination.location]], {
+                 color: '#21262d',
+                 weight: 1,
+                 opacity: 0.5
+            }).addTo(map);
+
+            const path = polyline._path;
+            path.classList.add('polyline-route');
         }
     },
 }
@@ -126,6 +143,7 @@ export default {
     transform: scale(1.2);
     transition: all .25s;
 }
+
 .leaflet-popup-content {
     font-family: 'Roboto Mono';
     font-weight: 500;
