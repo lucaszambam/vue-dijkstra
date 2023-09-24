@@ -1,330 +1,381 @@
 [
     {
-        "id": "POA",
-        "name": "Aeroporto Internacional Salgado Filho",
-        "location": {
-            "lat": -29.9939,
-            "long": -51.1711
-        }
+      "id": "POA",
+      "name": "Aeroporto Internacional Salgado Filho",
+      "location": {
+        "lat": -29.9939,
+        "lng": -51.1711
+      },
+      "destinations": ["CXJ", "CWB", "FLN", "GIG"]
     },
     {
-        "id": "CXJ",
-        "name": "Aeroporto Regional de Caxias do Sul",
-        "location": {
-            "lat": -29.1969,
-            "long": -51.1872
-        }
+      "id": "CXJ",
+      "name": "Aeroporto Regional de Caxias do Sul",
+      "location": {
+        "lat": -29.1969,
+        "lng": -51.1872
+      },
+      "destinations": ["POA", "CWB", "FLN"]
     },
     {
-        "id": "CWB",
-        "name": "Aeroporto Internacional Afonso Pena",
-        "location": {
-            "lat": -25.5327,
-            "long": -49.1758
-        }
+      "id": "CWB",
+      "name": "Aeroporto Internacional Afonso Pena",
+      "location": {
+        "lat": -25.5327,
+        "lng": -49.1758
+      },
+      "destinations": ["POA", "CXJ", "FLN", "GIG"]
     },
     {
-        "id": "IGU",
-        "name": "Aeroporto Internacional de Foz do Iguaçu",
-        "location": {
-            "lat": -25.6002,
-            "long": -54.4852
-        }
+      "id": "IGU",
+      "name": "Aeroporto Internacional de Foz do Iguaçu",
+      "location": {
+        "lat": -25.6002,
+        "lng": -54.4852
+      },
+      "destinations": ["GRU", "GIG", "CGH"]
     },
     {
-        "id": "FLN",
-        "name": "Aeroporto Internacional Hercílio Luz",
-        "location": {
-            "lat": -27.6705,
-            "long": -48.5477
-        }
+      "id": "FLN",
+      "name": "Aeroporto Internacional Hercílio Luz",
+      "location": {
+        "lat": -27.6705,
+        "lng": -48.5477
+      },
+      "destinations": ["POA", "CXJ", "CWB", "GIG"]
     },
     {
-        "id": "NVT",
-        "name": "Aeroporto de Navegantes",
-        "location": {
-            "lat": -26.8814,
-            "long": -48.6525
-        }
+      "id": "NVT",
+      "name": "Aeroporto de Navegantes",
+      "location": {
+        "lat": -26.8814,
+        "lng": -48.6525
+      },
+      "destinations": ["GRU", "CGH"]
     },
     {
-        "id": "GRU",
-        "name": "Aeroporto Internacional de São Paulo/Guarulhos - Governador André Franco Montoro",
-        "location": {
-            "lat": -23.4321,
-            "long": -46.4698
-        }
+      "id": "GRU",
+      "name": "Aeroporto Internacional de São Paulo/Guarulhos - Governador André Franco Montoro",
+      "location": {
+        "lat": -23.4321,
+        "lng": -46.4698
+      },
+      "destinations": ["IGU", "CGH", "VCP"]
     },
     {
-        "id": "CGH",
-        "name": "Aeroporto de Congonhas - São Paulo/Congonhas",
-        "location": {
-            "lat": -23.6261,
-            "long": -46.6560
-        }
+      "id": "CGH",
+      "name": "Aeroporto de Congonhas - São Paulo/Congonhas",
+      "location": {
+        "lat": -23.6261,
+        "lng": -46.656
+      },
+      "destinations": ["IGU", "GRU", "VCP"]
     },
     {
-        "id": "VCP",
-        "name": "Aeroporto Internacional de Viracopos - Campinas/Viracopos",
-        "location": {
-            "lat": -23.0073,
-            "long": -47.1346
-        }
+      "id": "VCP",
+      "name": "Aeroporto Internacional de Viracopos - Campinas/Viracopos",
+      "location": {
+        "lat": -23.0073,
+        "lng": -47.1346
+      },
+      "destinations": ["GRU", "CGH"]
     },
     {
-        "id": "SDU",
-        "name": "Aeroporto Santos Dumont - Rio de Janeiro/Santos Dumont (não em São Paulo, mas próximo)",
-        "location": {
-            "lat": -22.9111,
-            "long": -43.1642
-        }
+      "id": "SJP",
+      "name": "Aeroporto de São José do Rio Preto - Aeroporto Estadual Professor Eribelto Manoel Reino",
+      "location": {
+        "lat": -20.8156,
+        "lng": -49.4042
+      },
+      "destinations": ["GIG"]
     },
     {
-        "id": "GIG",
-        "name": "Aeroporto Internacional do Rio de Janeiro/Galeão - Antônio Carlos Jobim",
-        "location": {
-            "lat": -22.8093,
-            "long": -43.2503
-        }
+      "id": "RAO",
+      "name": "Aeroporto Estadual de Ribeirão Preto - Doutor Leite Lopes",
+      "location": {
+        "lat": -21.1322,
+        "lng": -47.7744
+      },
+      "destinations": ["GIG"]
     },
     {
-        "id": "SDU",
-        "name": "Aeroporto Santos Dumont - Rio de Janeiro/Santos Dumont",
-        "location": {
-            "lat": -22.9111,
-            "long": -43.1642
-        }
+      "id": "GIG",
+      "name": "Aeroporto Internacional do Rio de Janeiro/Galeão - Antônio Carlos Jobim",
+      "location": {
+        "lat": -22.8093,
+        "lng": -43.2503
+      },
+      "destinations": ["IGU", "GRU", "CGH", "SJP", "RAO"]
     },
     {
-        "id": "BZC",
-        "name": "Aeroporto de Macaé - Rio de Janeiro/Macaé",
-        "location": {
-            "lat": -22.3761,
-            "long": -41.8049
-        }
+      "id": "SDU",
+      "name": "Aeroporto Santos Dumont - Rio de Janeiro/Santos Dumont",
+      "location": {
+        "lat": -22.9111,
+        "lng": -43.1642
+      },
+      "destinations": ["GIG"]
     },
     {
-        "id": "VIX",
-        "name": "Aeroporto de Vitória - Eurico de Aguiar Salles",
-        "location": {
-            "lat": -20.2575,
-            "long": -40.2831
-        }
+      "id": "BZC",
+      "name": "Aeroporto de Macaé - Rio de Janeiro/Macaé",
+      "location": {
+        "lat": -22.3761,
+        "lng": -41.8049
+      },
+      "destinations": []
     },
     {
-        "id": "CNF",
-        "name": "Aeroporto Internacional Tancredo Neves - Confins",
-        "location": {
-            "lat": -19.6336,
-            "long": -43.9686
-        }
+      "id": "VIX",
+      "name": "Aeroporto de Vitória - Eurico de Aguiar Salles",
+      "location": {
+        "lat": -20.2575,
+        "lng": -40.2831
+      },
+      "destinations": []
     },
     {
-        "id": "PLU",
-        "name": "Aeroporto da Pampulha - Belo Horizonte/Pampulha",
-        "location": {
-            "lat": -19.8513,
-            "long": -43.9485
-        }
+      "id": "CNF",
+      "name": "Aeroporto Internacional Tancredo Neves - Confins",
+      "location": {
+        "lat": -19.6336,
+        "lng": -43.9686
+      },
+      "destinations": []
     },
     {
-        "id": "UDI",
-        "name": "Aeroporto de Uberlândia - Ten. Cel. Aviador César Bombonato",
-        "location": {
-            "lat": -18.8829,
-            "long": -48.2254
-        }
+      "id": "PLU",
+      "name": "Aeroporto da Pampulha - Belo Horizonte/Pampulha",
+      "location": {
+        "lat": -19.8513,
+        "lng": -43.9485
+      },
+      "destinations": []
     },
     {
-        "id": "GYN",
-        "name": "Aeroporto Santa Genoveva - Goiânia/Santa Genoveva",
-        "location": {
-            "lat": -16.6325,
-            "long": -49.2207
-        }
+      "id": "UDI",
+      "name": "Aeroporto de Uberlândia - Ten. Cel. Aviador César Bombonato",
+      "location": {
+        "lat": -18.8829,
+        "lng": -48.2254
+      },
+      "destinations": []
     },
     {
-        "id": "BSB",
-        "name": "Aeroporto Internacional de Brasília - Presidente Juscelino Kubitschek (no DF, mas próximo de GO)",
-        "location": {
-            "lat": -15.8694,
-            "long": -47.9186
-        }
+      "id": "GYN",
+      "name": "Aeroporto Santa Genoveva - Goiânia/Santa Genoveva",
+      "location": {
+        "lat": -16.6325,
+        "lng": -49.2207
+      },
+      "destinations": []
     },
     {
-        "id": "CGR",
-        "name": "Aeroporto Internacional de Campo Grande - Campo Grande/Internacional",
-        "location": {
-            "lat": -20.4686,
-            "long": -54.6725
-        }
+      "id": "BSB",
+      "name": "Aeroporto Internacional de Brasília - Presidente Juscelino Kubitschek (no DF, mas próximo de GO)",
+      "location": {
+        "lat": -15.8694,
+        "lng": -47.9186
+      },
+      "destinations": []
     },
     {
-        "id": "CGB",
-        "name": "Aeroporto Internacional Marechal Rondon - Cuiabá/Marechal Rondon",
-        "location": {
-            "lat": -15.6529,
-            "long": -56.1164
-        }
+      "id": "CGR",
+      "name": "Aeroporto Internacional de Campo Grande - Campo Grande/Internacional",
+      "location": {
+        "lat": -20.4686,
+        "lng": -54.6725
+      },
+      "destinations": []
     },
     {
-        "id": "BSB",
-        "name": "Aeroporto Internacional de Brasília - Presidente Juscelino Kubitschek",
-        "location": {
-            "lat": -15.8694,
-            "long": -47.9186
-        }
+      "id": "CGB",
+      "name": "Aeroporto Internacional Marechal Rondon - Cuiabá/Marechal Rondon",
+      "location": {
+        "lat": -15.6529,
+        "lng": -56.1164
+      },
+      "destinations": []
     },
     {
-        "id": "SSA",
-        "name": "Aeroporto Internacional de Salvador - Dep. Luís Eduardo Magalhães",
-        "location": {
-            "lat": -12.9116,
-            "long": -38.3312
-        }
+      "id": "BSB",
+      "name": "Aeroporto Internacional de Brasília - Presidente Juscelino Kubitschek",
+      "location": {
+        "lat": -15.8694,
+        "lng": -47.9186
+      },
+      "destinations": []
     },
     {
-        "id": "BPS",
-        "name": "Aeroporto de Porto Seguro - Porto Seguro",
-        "location": {
-            "lat": -16.4386,
-            "long": -39.0808
-        }
+      "id": "SSA",
+      "name": "Aeroporto Internacional de Salvador - Dep. Luís Eduardo Magalhães",
+      "location": {
+        "lat": -12.9116,
+        "lng": -38.3312
+      },
+      "destinations": []
     },
     {
-        "id": "AJU",
-        "name": "Aeroporto de Aracaju - Santa Maria",
-        "location": {
-            "lat": -10.9851,
-            "long": -37.0724
-        }
+      "id": "BPS",
+      "name": "Aeroporto de Porto Seguro - Porto Seguro",
+      "location": {
+        "lat": -16.4386,
+        "lng": -39.0808
+      },
+      "destinations": []
     },
     {
-        "id": "MCZ",
-        "name": "Aeroporto Internacional Zumbi dos Palmares - Maceió/Zumbi dos Palmares",
-        "location": {
-            "lat": -9.5107,
-            "long": -35.7917
-        }
+      "id": "AJU",
+      "name": "Aeroporto de Aracaju - Santa Maria",
+      "location": {
+        "lat": -10.9851,
+        "lng": -37.0724
+      },
+      "destinations": []
     },
     {
-        "id": "JPA",
-        "name": "Aeroporto Internacional de João Pessoa - Presidente Castro Pinto",
-        "location": {
-            "lat": -7.1458,
-            "long": -34.9497
-        }
+      "id": "MCZ",
+      "name": "Aeroporto Internacional Zumbi dos Palmares - Maceió/Zumbi dos Palmares",
+      "location": {
+        "lat": -9.5107,
+        "lng": -35.7917
+      },
+      "destinations": []
     },
     {
-        "id": "REC",
-        "name": "Aeroporto Internacional do Recife/Guararapes - Gilberto Freyre",
-        "location": {
-            "lat": -8.1325,
-            "long": -34.9238
-        }
+      "id": "JPA",
+      "name": "Aeroporto Internacional de João Pessoa - Presidente Castro Pinto",
+      "location": {
+        "lat": -7.1458,
+        "lng": -34.9497
+      },
+      "destinations": []
     },
     {
-        "id": "PLN",
-        "name": "Aeroporto de Petrolina - Senador Nilo Coelho",
-        "location": {
-            "lat": -9.3873,
-            "long": -40.4904
-        }
+      "id": "REC",
+      "name": "Aeroporto Internacional do Recife/Guararapes - Gilberto Freyre",
+      "location": {
+        "lat": -8.1325,
+        "lng": -34.9238
+      },
+      "destinations": []
     },
     {
-        "id": "NAT",
-        "name": "Aeroporto Internacional de Natal - Aluízio Alves",
-        "location": {
-            "lat": -5.7671,
-            "long": -35.3628
-        }
+      "id": "PLN",
+      "name": "Aeroporto de Petrolina - Senador Nilo Coelho",
+      "location": {
+        "lat": -9.3873,
+        "lng": -40.4904
+      },
+      "destinations": []
     },
     {
-        "id": "SLZ",
-        "name": "Aeroporto Internacional Marechal Cunha Machado - São Luís/Marechal Cunha Machado",
-        "location": {
-            "lat": -2.5854,
-            "long": -44.2351
-        }
+      "id": "NAT",
+      "name": "Aeroporto Internacional de Natal - Aluízio Alves",
+      "location": {
+        "lat": -5.7671,
+        "lng": -35.3628
+      },
+      "destinations": []
     },
     {
-        "id": "FOR",
-        "name": "Aeroporto Internacional de Fortaleza - Pinto Martins",
-        "location": {
-            "lat": -3.7761,
-            "long": -38.5323
-        }
+      "id": "SLZ",
+      "name": "Aeroporto Internacional Marechal Cunha Machado - São Luís/Marechal Cunha Machado",
+      "location": {
+        "lat": -2.5854,
+        "lng": -44.2351
+      },
+      "destinations": []
     },
     {
-        "id": "JDO",
-        "name": "Aeroporto de Juazeiro do Norte - Orlando Bezerra de Menezes",
-        "location": {
-            "lat": -7.2182,
-            "long": -39.2708
-        }
+      "id": "FOR",
+      "name": "Aeroporto Internacional de Fortaleza - Pinto Martins",
+      "location": {
+        "lat": -3.7761,
+        "lng": -38.5323
+      },
+      "destinations": []
     },
     {
-        "id": "TJL",
-        "name": "Aeroporto de Teresina - Senador Petrônio Portella",
-        "location": {
-            "lat": -5.0633,
-            "long": -42.8219
-        }
+      "id": "JDO",
+      "name": "Aeroporto de Juazeiro do Norte - Orlando Bezerra de Menezes",
+      "location": {
+        "lat": -7.2182,
+        "lng": -39.2708
+      },
+      "destinations": []
     },
     {
-        "id": "MAO",
-        "name": "Aeroporto Internacional Eduardo Gomes - Manaus/Eduardo Gomes",
-        "location": {
-            "lat": -3.0418,
-            "long": -60.0497
-        }
+      "id": "TJL",
+      "name": "Aeroporto de Teresina - Senador Petrônio Portella",
+      "location": {
+        "lat": -5.0633,
+        "lng": -42.8219
+      },
+      "destinations": []
     },
     {
-        "id": "BEL",
-        "name": "Aeroporto Internacional de Belém - Val de Cans/Júlio Cezar Ribeiro",
-        "location": {
-            "lat": 0.0497,
-            "long": -51.0714
-        }
+      "id": "MAO",
+      "name": "Aeroporto Internacional Eduardo Gomes - Manaus/Eduardo Gomes",
+      "location": {
+        "lat": -3.0418,
+        "lng": -60.0497
+      },
+      "destinations": []
     },
     {
-        "id": "PVH",
-        "name": "Aeroporto Internacional Governador Jorge Teixeira - Porto Velho/Jorge Teixeira",
-        "location": {
-            "lat": -8.7152,
-            "long": -63.9020
-        }
+      "id": "BEL",
+      "name": "Aeroporto Internacional de Belém - Val de Cans/Júlio Cezar Ribeiro",
+      "location": {
+        "lat": 0.0497,
+        "lng": -51.0714
+      },
+      "destinations": []
     },
     {
-        "id": "BOA",
-        "name": "Aeroporto Internacional Atlas Brasil Cantanhede - Boa Vista/Atlas Brasil Cantanhede",
-        "location": {
-            "lat": 2.8541,
-            "long": -60.6912
-        }
+      "id": "PVH",
+      "name": "Aeroporto Internacional Governador Jorge Teixeira - Porto Velho/Jorge Teixeira",
+      "location": {
+        "lat": -8.7152,
+        "lng": -63.902
+      },
+      "destinations": []
     },
     {
-        "id": "PMW",
-        "name": "Aeroporto de Palmas - Brigadeiro Lysias Rodrigues",
-        "location": {
-            "lat": -10.2933,
-            "long": -48.3563
-        }
+      "id": "BOA",
+      "name": "Aeroporto Internacional Atlas Brasil Cantanhede - Boa Vista/Atlas Brasil Cantanhede",
+      "location": {
+        "lat": 2.8541,
+        "lng": -60.6912
+      },
+      "destinations": []
     },
     {
-        "id": "RBR",
-        "name": "Aeroporto Internacional de Rio Branco - Plácido de Castro",
-        "location": {
-            "lat": -9.8691,
-            "long": -67.8935
-        }
+      "id": "PMW",
+      "name": "Aeroporto de Palmas - Brigadeiro Lysias Rodrigues",
+      "location": {
+        "lat": -10.2933,
+        "lng": -48.3563
+      },
+      "destinations": []
     },
     {
-        "id": "BEL",
-        "name": "Aeroporto Internacional de Belém - Val de Cans/Júlio Cezar Ribeiro",
-        "location": {
-            "lat": -1.3899,
-            "long": -48.4783
-        }
+      "id": "RBR",
+      "name": "Aeroporto Internacional de Rio Branco - Plácido de Castro",
+      "location": {
+        "lat": -9.8691,
+        "lng": -67.8935
+      },
+      "destinations": []
+    },
+    {
+      "id": "BEL",
+      "name": "Aeroporto Internacional de Belém - Val de Cans/Júlio Cezar Ribeiro",
+      "location": {
+        "lat": -1.3899,
+        "lng": -48.4783
+      },
+      "destinations": []
     }
-]
+  ]
+  
