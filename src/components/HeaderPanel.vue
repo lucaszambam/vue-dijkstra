@@ -26,7 +26,7 @@
         <div class="control-area">
             <div class="input-container">
                 <div>
-                    <label>Origin: <input v-model="selectedOrigin" list="origin-airports"></label>
+                    <label>Origin: <input v-model="selectedOrigin" @change="onSelectOrigin" list="origin-airports"></label>
                     <datalist id="origin-airports">
                         <option v-for="airport in airports" :value="airport.id">{{ airport.name }}</option>
                     </datalist><br>
@@ -79,6 +79,24 @@ export default {
                 origin: this.selectedOrigin,
                 destination: this.selectedDestination
             });
+        },
+
+        onSelectOrigin(event) {
+            const originAirportId = event.currentTarget.value;
+            if (originAirportId) {
+                const originAirportFromOrign = document.querySelector(`#destination-airports option[value="${originAirportId}"]`);
+                if (originAirportFromOrign) {
+                    originAirportFromOrign.setAttribute('disabled', true);
+                    return;
+                }
+            }
+
+            const destinationAirports = document.getElementById('destination-airports');
+            if (destinationAirports) {
+                for (let i = 0; i < destinationAirports.children.length; i++) {
+                    destinationAirports.children[i].removeAttribute('disabled');
+                }
+            }
         }
     }
 }
@@ -307,4 +325,3 @@ button:hover {
     }
 }
 </style>
-  
