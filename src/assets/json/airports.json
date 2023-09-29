@@ -9,7 +9,14 @@
         "destinations": [
             "GRU",
             "GYN",
-            "BEL"
+            "BEL",
+            "VCP",
+            "GIG",
+            "SDU",
+            "VIX",
+            "NAT",
+            "FOR",
+            "MAO"
         ]
     },
     {
@@ -22,7 +29,11 @@
         "destinations": [
             "SDU",
             "PLU",
-            "AJU"
+            "AJU",
+            "JDO",
+            "TJL",
+            "PVH",
+            "PMW"
         ]
     },
     {
@@ -34,8 +45,10 @@
         },
         "destinations": [
             "GIG",
-            "PLN",
-            "FOR"
+            "PNZ",
+            "FOR",
+            "GRU",
+            "VCP"
         ]
     },
     {
@@ -48,7 +61,9 @@
         "destinations": [
             "SDU",
             "JDO",
-            "RBR"
+            "RBR",
+            "BZC",
+            "MCP"
         ]
     },
     {
@@ -61,7 +76,9 @@
         "destinations": [
             "GIG",
             "SSA",
-            "BEL"
+            "BEL",
+            "VIX",
+            "PNZ"
         ]
     },
     {
@@ -92,7 +109,8 @@
             "SSA",
             "REC",
             "FOR",
-            "CNF"
+            "CNF",
+            "BSB"
         ]
     },
     {
@@ -105,7 +123,9 @@
         "destinations": [
             "CGR",
             "BPS",
-            "PLU"
+            "PLU",
+            "BSB",
+            "CGB"
         ]
     },
     {
@@ -120,7 +140,10 @@
             "CWB",
             "SDU",
             "GIG",
-            "SSA"
+            "SSA",
+            "NVT",
+            "RAO",
+            "NAT"
         ]
     },
     {
@@ -146,7 +169,9 @@
         "destinations": [
             "CNF",
             "VCP",
-            "SSA"
+            "SSA",
+            "REC",
+            "PNZ"
         ]
     },
     {
@@ -162,7 +187,13 @@
             "GRU",
             "FOR",
             "BEL",
-            "RBR"
+            "RBR",
+            "FLN",
+            "VCP",
+            "CNF",
+            "SSA",
+            "REC",
+            "SLZ"
         ]
     },
     {
@@ -177,7 +208,14 @@
             "IGU",
             "GRU",
             "VCP",
-            "FOR"
+            "FOR",
+            "CXJ",
+            "CNF",
+            "MCZ",
+            "JPA",
+            "REC",
+            "SLZ",
+            "BOA"
         ]
     },
     {
@@ -190,7 +228,9 @@
         "destinations": [
             "IGU",
             "GYN",
-            "BEL"
+            "BEL",
+            "BPS",
+            "MAO"
         ]
     },
     {
@@ -218,7 +258,10 @@
             "SDU",
             "GRU",
             "RAO",
-            "VIX"
+            "VIX",
+            "NVT",
+            "PNZ",
+            "NAT"
         ]
     },
     {
@@ -231,7 +274,9 @@
         "destinations": [
             "CXJ",
             "CGH",
-            "SJP"
+            "SJP",
+            "UDI",
+            "CGR"
         ]
     },
     {
@@ -244,7 +289,8 @@
         "destinations": [
             "CGR",
             "BPS",
-            "PLU"
+            "PLU",
+            "GYN"
         ]
     },
     {
@@ -310,7 +356,9 @@
             "FLN",
             "RAO",
             "GIG",
-            "REC"
+            "REC",
+            "VCP",
+            "FOR"
         ]
     },
     {
@@ -323,7 +371,8 @@
         "destinations": [
             "CGH",
             "SJP",
-            "BZC"
+            "BZC",
+            "UDI"
         ]
     },
     {
@@ -336,7 +385,9 @@
         "destinations": [
             "CXJ",
             "SJP",
-            "RBR"
+            "RBR",
+            "JDO",
+            "MCP"
         ]
     },
     {
@@ -375,11 +426,15 @@
             "GRU",
             "RAO",
             "GIG",
-            "MCZ"
+            "MCZ",
+            "NVT",
+            "BSB",
+            "CGB",
+            "SSA"
         ]
     },
     {
-        "id": "PLN",
+        "id": "PNZ",
         "name": "Aeroporto de Petrolina - Senador Nilo Coelho",
         "location": {
             "lat": -9.3873,
@@ -388,7 +443,8 @@
         "destinations": [
             "FLN",
             "CNF",
-            "RAO"
+            "RAO",
+            "CWB"
         ]
     },
     {
@@ -428,7 +484,9 @@
             "CWB",
             "GIG",
             "SSA",
-            "RBR"
+            "RBR",
+            "GRU",
+            "SDU"
         ]
     },
     {
@@ -440,7 +498,8 @@
         },
         "destinations": [
             "CXJ",
-            "AJU"
+            "AJU",
+            "IGU"
         ]
     },
     {
@@ -476,7 +535,8 @@
         "destinations": [
             "POA",
             "FLN",
-            "GIG"
+            "GIG",
+            "BZC"
         ]
     },
     {
@@ -521,7 +581,10 @@
         },
         "destinations": [
             "IGU",
-            "JPA"
+            "JPA",
+            "GIG",
+            "AJU",
+            "FOR"
         ]
     },
     {
