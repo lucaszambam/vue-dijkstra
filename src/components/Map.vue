@@ -46,6 +46,8 @@ export default {
                 disableClusteringAtZoom: 2
             });
 
+            this.validateAirportsData(airports);
+
             for (let i = 0; i < airports.length; i++) {
                 const currentAirport = airports[i];
                 const markerPopupContent = `<strong>${currentAirport.id}</strong><br>
@@ -55,7 +57,7 @@ export default {
                                                 <li><strong>Longitude</strong>: ${currentAirport.location.lng}</li>
                                             </ul>`;
 
-                currentAirport.destinations.map(function(id) {
+                currentAirport.destinations.map(function (id) {
                     const destinationAirport = airports.find(airport => airport.id === id);
 
                 }, currentAirport);
@@ -83,13 +85,27 @@ export default {
 
         addRoute(origin, destination, map) {
             const polyline = L.polyline([[origin.location, destination.location]], {
-                 color: '#21262d',
-                 weight: 1,
-                 opacity: 0.5
+                color: '#21262d',
+                weight: 1,
+                opacity: 0.25
             }).addTo(map);
 
             const path = polyline._path;
             path.classList.add('polyline-route');
+        },
+
+        validateAirportsData(airports) {
+            for (const originAirport of airports) {
+                for (const destinationCode of originAirport.destinations) {
+                    const destinationAirport = airports.find(airport => airport.id === destinationCode);
+
+                    if (!destinationAirport) {
+                        console.error(`O aeroporto de destino ${destinationCode} não foi encontrado.`);
+                    } else if (!destinationAirport.destinations.includes(originAirport.id)) {
+                        console.error(`O aeroporto ${originAirport.id} não está listado como destino em ${destinationCode}.`);
+                    }
+                }
+            }
         }
     },
 }
