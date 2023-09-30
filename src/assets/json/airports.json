@@ -7,16 +7,46 @@
             "lng": -51.1711
         },
         "destinations": [
-            "GRU",
-            "GYN",
-            "BEL",
-            "VCP",
-            "GIG",
-            "SDU",
-            "VIX",
-            "NAT",
-            "FOR",
-            "MAO"
+            {
+                "id": "GRU",
+                "price": 300
+            },
+            {
+                "id": "GYN",
+                "price": 250
+            },
+            {
+                "id": "BEL",
+                "price": 400
+            },
+            {
+                "id": "VCP",
+                "price": 350
+            },
+            {
+                "id": "GIG",
+                "price": 450
+            },
+            {
+                "id": "SDU",
+                "price": 500
+            },
+            {
+                "id": "VIX",
+                "price": 380
+            },
+            {
+                "id": "NAT",
+                "price": 420
+            },
+            {
+                "id": "FOR",
+                "price": 550
+            },
+            {
+                "id": "MAO",
+                "price": 600
+            }
         ]
     },
     {
@@ -27,13 +57,34 @@
             "lng": -51.1872
         },
         "destinations": [
-            "SDU",
-            "PLU",
-            "AJU",
-            "JDO",
-            "TJL",
-            "PVH",
-            "PMW"
+            {
+                "id": "SDU",
+                "price": 320
+            },
+            {
+                "id": "PLU",
+                "price": 280
+            },
+            {
+                "id": "AJU",
+                "price": 360
+            },
+            {
+                "id": "JDO",
+                "price": 410
+            },
+            {
+                "id": "TJL",
+                "price": 340
+            },
+            {
+                "id": "PVH",
+                "price": 380
+            },
+            {
+                "id": "PMW",
+                "price": 400
+            }
         ]
     },
     {
@@ -44,11 +95,26 @@
             "lng": -49.1758
         },
         "destinations": [
-            "GIG",
-            "PNZ",
-            "FOR",
-            "GRU",
-            "VCP"
+            {
+                "id": "GIG",
+                "price": 400
+            },
+            {
+                "id": "PNZ",
+                "price": 350
+            },
+            {
+                "id": "FOR",
+                "price": 480
+            },
+            {
+                "id": "GRU",
+                "price": 420
+            },
+            {
+                "id": "VCP",
+                "price": 450
+            }
         ]
     },
     {
@@ -59,11 +125,26 @@
             "lng": -54.4852
         },
         "destinations": [
-            "SDU",
-            "JDO",
-            "RBR",
-            "BZC",
-            "MCP"
+            {
+                "id": "SDU",
+                "price": 300
+            },
+            {
+                "id": "JDO",
+                "price": 320
+            },
+            {
+                "id": "RBR",
+                "price": 280
+            },
+            {
+                "id": "BZC",
+                "price": 340
+            },
+            {
+                "id": "MCP",
+                "price": 380
+            }
         ]
     },
     {
@@ -74,11 +155,26 @@
             "lng": -48.5477
         },
         "destinations": [
-            "GIG",
-            "SSA",
-            "BEL",
-            "VIX",
-            "PNZ"
+            {
+                "id": "GIG",
+                "price": 380
+            },
+            {
+                "id": "SSA",
+                "price": 420
+            },
+            {
+                "id": "BEL",
+                "price": 450
+            },
+            {
+                "id": "VIX",
+                "price": 360
+            },
+            {
+                "id": "PNZ",
+                "price": 400
+            }
         ]
     },
     {
@@ -89,9 +185,18 @@
             "lng": -48.6525
         },
         "destinations": [
-            "CNF",
-            "VCP",
-            "REC"
+            {
+                "id": "CNF",
+                "price": 340
+            },
+            {
+                "id": "VCP",
+                "price": 380
+            },
+            {
+                "id": "REC",
+                "price": 410
+            }
         ]
     },
     {
@@ -102,15 +207,42 @@
             "lng": -46.4698
         },
         "destinations": [
-            "POA",
-            "CWB",
-            "SDU",
-            "GIG",
-            "SSA",
-            "REC",
-            "FOR",
-            "CNF",
-            "BSB"
+            {
+                "id": "POA",
+                "price": 420
+            },
+            {
+                "id": "CWB",
+                "price": 400
+            },
+            {
+                "id": "SDU",
+                "price": 350
+            },
+            {
+                "id": "GIG",
+                "price": 380
+            },
+            {
+                "id": "SSA",
+                "price": 450
+            },
+            {
+                "id": "REC",
+                "price": 410
+            },
+            {
+                "id": "FOR",
+                "price": 480
+            },
+            {
+                "id": "CNF",
+                "price": 390
+            },
+            {
+                "id": "BSB",
+                "price": 440
+            }
         ]
     },
     {
@@ -121,11 +253,26 @@
             "lng": -46.656
         },
         "destinations": [
-            "CGR",
-            "BPS",
-            "PLU",
-            "BSB",
-            "CGB"
+            {
+                "id": "CGR",
+                "price": 360
+            },
+            {
+                "id": "BPS",
+                "price": 330
+            },
+            {
+                "id": "PLU",
+                "price": 310
+            },
+            {
+                "id": "BSB",
+                "price": 440
+            },
+            {
+                "id": "CGB",
+                "price": 370
+            }
         ]
     },
     {
@@ -136,14 +283,38 @@
             "lng": -47.1346
         },
         "destinations": [
-            "POA",
-            "CWB",
-            "SDU",
-            "GIG",
-            "SSA",
-            "NVT",
-            "RAO",
-            "NAT"
+            {
+                "id": "POA",
+                "price": 390
+            },
+            {
+                "id": "CWB",
+                "price": 420
+            },
+            {
+                "id": "SDU",
+                "price": 360
+            },
+            {
+                "id": "GIG",
+                "price": 400
+            },
+            {
+                "id": "SSA",
+                "price": 430
+            },
+            {
+                "id": "NVT",
+                "price": 370
+            },
+            {
+                "id": "RAO",
+                "price": 410
+            },
+            {
+                "id": "NAT",
+                "price": 380
+            }
         ]
     },
     {
@@ -154,9 +325,18 @@
             "lng": -49.4042
         },
         "destinations": [
-            "BPS",
-            "PLU",
-            "AJU"
+            {
+                "id": "BPS",
+                "price": 320
+            },
+            {
+                "id": "PLU",
+                "price": 310
+            },
+            {
+                "id": "AJU",
+                "price": 330
+            }
         ]
     },
     {
@@ -167,11 +347,26 @@
             "lng": -47.7744
         },
         "destinations": [
-            "CNF",
-            "VCP",
-            "SSA",
-            "REC",
-            "PNZ"
+            {
+                "id": "CNF",
+                "price": 370
+            },
+            {
+                "id": "VCP",
+                "price": 410
+            },
+            {
+                "id": "SSA",
+                "price": 430
+            },
+            {
+                "id": "REC",
+                "price": 400
+            },
+            {
+                "id": "PNZ",
+                "price": 360
+            }
         ]
     },
     {
@@ -182,18 +377,54 @@
             "lng": -43.2503
         },
         "destinations": [
-            "POA",
-            "CWB",
-            "GRU",
-            "FOR",
-            "BEL",
-            "RBR",
-            "FLN",
-            "VCP",
-            "CNF",
-            "SSA",
-            "REC",
-            "SLZ"
+            {
+                "id": "POA",
+                "price": 450
+            },
+            {
+                "id": "CWB",
+                "price": 400
+            },
+            {
+                "id": "GRU",
+                "price": 380
+            },
+            {
+                "id": "FOR",
+                "price": 420
+            },
+            {
+                "id": "BEL",
+                "price": 460
+            },
+            {
+                "id": "RBR",
+                "price": 390
+            },
+            {
+                "id": "FLN",
+                "price": 410
+            },
+            {
+                "id": "VCP",
+                "price": 440
+            },
+            {
+                "id": "CNF",
+                "price": 430
+            },
+            {
+                "id": "SSA",
+                "price": 470
+            },
+            {
+                "id": "REC",
+                "price": 450
+            },
+            {
+                "id": "SLZ",
+                "price": 420
+            }
         ]
     },
     {
@@ -204,18 +435,54 @@
             "lng": -43.1642
         },
         "destinations": [
-            "POA",
-            "IGU",
-            "GRU",
-            "VCP",
-            "FOR",
-            "CXJ",
-            "CNF",
-            "MCZ",
-            "JPA",
-            "REC",
-            "SLZ",
-            "BOA"
+            {
+                "id": "POA",
+                "price": 500
+            },
+            {
+                "id": "IGU",
+                "price": 520
+            },
+            {
+                "id": "GRU",
+                "price": 450
+            },
+            {
+                "id": "VCP",
+                "price": 480
+            },
+            {
+                "id": "FOR",
+                "price": 510
+            },
+            {
+                "id": "CXJ",
+                "price": 470
+            },
+            {
+                "id": "CNF",
+                "price": 490
+            },
+            {
+                "id": "MCZ",
+                "price": 460
+            },
+            {
+                "id": "JPA",
+                "price": 440
+            },
+            {
+                "id": "REC",
+                "price": 520
+            },
+            {
+                "id": "SLZ",
+                "price": 480
+            },
+            {
+                "id": "BOA",
+                "price": 510
+            }
         ]
     },
     {
@@ -226,11 +493,26 @@
             "lng": -41.8049
         },
         "destinations": [
-            "IGU",
-            "GYN",
-            "BEL",
-            "BPS",
-            "MAO"
+            {
+                "id": "IGU",
+                "price": 390
+            },
+            {
+                "id": "GYN",
+                "price": 370
+            },
+            {
+                "id": "BEL",
+                "price": 410
+            },
+            {
+                "id": "BPS",
+                "price": 350
+            },
+            {
+                "id": "MAO",
+                "price": 420
+            }
         ]
     },
     {
@@ -241,9 +523,18 @@
             "lng": -40.2831
         },
         "destinations": [
-            "POA",
-            "FLN",
-            "CNF"
+            {
+                "id": "POA",
+                "price": 340
+            },
+            {
+                "id": "FLN",
+                "price": 360
+            },
+            {
+                "id": "CNF",
+                "price": 380
+            }
         ]
     },
     {
@@ -254,14 +545,38 @@
             "lng": -43.9686
         },
         "destinations": [
-            "GIG",
-            "SDU",
-            "GRU",
-            "RAO",
-            "VIX",
-            "NVT",
-            "PNZ",
-            "NAT"
+            {
+                "id": "GIG",
+                "price": 430
+            },
+            {
+                "id": "SDU",
+                "price": 490
+            },
+            {
+                "id": "GRU",
+                "price": 420
+            },
+            {
+                "id": "RAO",
+                "price": 450
+            },
+            {
+                "id": "VIX",
+                "price": 380
+            },
+            {
+                "id": "NVT",
+                "price": 410
+            },
+            {
+                "id": "PNZ",
+                "price": 360
+            },
+            {
+                "id": "NAT",
+                "price": 390
+            }
         ]
     },
     {
@@ -272,11 +587,26 @@
             "lng": -43.9485
         },
         "destinations": [
-            "CXJ",
-            "CGH",
-            "SJP",
-            "UDI",
-            "CGR"
+            {
+                "id": "CXJ",
+                "price": 310
+            },
+            {
+                "id": "CGH",
+                "price": 330
+            },
+            {
+                "id": "SJP",
+                "price": 320
+            },
+            {
+                "id": "UDI",
+                "price": 340
+            },
+            {
+                "id": "CGR",
+                "price": 360
+            }
         ]
     },
     {
@@ -287,10 +617,22 @@
             "lng": -48.2254
         },
         "destinations": [
-            "CGR",
-            "BPS",
-            "PLU",
-            "GYN"
+            {
+                "id": "CGR",
+                "price": 350
+            },
+            {
+                "id": "BPS",
+                "price": 330
+            },
+            {
+                "id": "PLU",
+                "price": 320
+            },
+            {
+                "id": "GYN",
+                "price": 360
+            }
         ]
     },
     {
@@ -301,9 +643,18 @@
             "lng": -49.2207
         },
         "destinations": [
-            "POA",
-            "BZC",
-            "UDI"
+            {
+                "id": "POA",
+                "price": 380
+            },
+            {
+                "id": "BZC",
+                "price": 410
+            },
+            {
+                "id": "UDI",
+                "price": 360
+            }
         ]
     },
     {
@@ -314,9 +665,18 @@
             "lng": -47.9186
         },
         "destinations": [
-            "GRU",
-            "CGH",
-            "REC"
+            {
+                "id": "GRU",
+                "price": 400
+            },
+            {
+                "id": "CGH",
+                "price": 420
+            },
+            {
+                "id": "REC",
+                "price": 460
+            }
         ]
     },
     {
@@ -327,9 +687,18 @@
             "lng": -54.6725
         },
         "destinations": [
-            "CGH",
-            "UDI",
-            "PLU"
+            {
+                "id": "CGH",
+                "price": 360
+            },
+            {
+                "id": "UDI",
+                "price": 350
+            },
+            {
+                "id": "PLU",
+                "price": 330
+            }
         ]
     },
     {
@@ -340,8 +709,14 @@
             "lng": -56.1164
         },
         "destinations": [
-            "CGH",
-            "REC"
+            {
+                "id": "CGH",
+                "price": 380
+            },
+            {
+                "id": "REC",
+                "price": 440
+            }
         ]
     },
     {
@@ -352,13 +727,34 @@
             "lng": -38.3312
         },
         "destinations": [
-            "GRU",
-            "FLN",
-            "RAO",
-            "GIG",
-            "REC",
-            "VCP",
-            "FOR"
+            {
+                "id": "GRU",
+                "price": 470
+            },
+            {
+                "id": "FLN",
+                "price": 430
+            },
+            {
+                "id": "RAO",
+                "price": 410
+            },
+            {
+                "id": "GIG",
+                "price": 450
+            },
+            {
+                "id": "REC",
+                "price": 490
+            },
+            {
+                "id": "VCP",
+                "price": 480
+            },
+            {
+                "id": "FOR",
+                "price": 520
+            }
         ]
     },
     {
@@ -369,10 +765,22 @@
             "lng": -39.0808
         },
         "destinations": [
-            "CGH",
-            "SJP",
-            "BZC",
-            "UDI"
+            {
+                "id": "CGH",
+                "price": 340
+            },
+            {
+                "id": "SJP",
+                "price": 320
+            },
+            {
+                "id": "BZC",
+                "price": 360
+            },
+            {
+                "id": "UDI",
+                "price": 340
+            }
         ]
     },
     {
@@ -383,11 +791,26 @@
             "lng": -37.0724
         },
         "destinations": [
-            "CXJ",
-            "SJP",
-            "RBR",
-            "JDO",
-            "MCP"
+            {
+                "id": "CXJ",
+                "price": 330
+            },
+            {
+                "id": "SJP",
+                "price": 320
+            },
+            {
+                "id": "RBR",
+                "price": 340
+            },
+            {
+                "id": "JDO",
+                "price": 310
+            },
+            {
+                "id": "MCP",
+                "price": 360
+            }
         ]
     },
     {
@@ -398,8 +821,14 @@
             "lng": -35.7917
         },
         "destinations": [
-            "SDU",
-            "REC"
+            {
+                "id": "SDU",
+                "price": 380
+            },
+            {
+                "id": "REC",
+                "price": 350
+            }
         ]
     },
     {
@@ -410,8 +839,14 @@
             "lng": -34.9497
         },
         "destinations": [
-            "SDU",
-            "RBR"
+            {
+                "id": "SDU",
+                "price": 330
+            },
+            {
+                "id": "RBR",
+                "price": 350
+            }
         ]
     },
     {
@@ -422,15 +857,42 @@
             "lng": -34.9238
         },
         "destinations": [
-            "SDU",
-            "GRU",
-            "RAO",
-            "GIG",
-            "MCZ",
-            "NVT",
-            "BSB",
-            "CGB",
-            "SSA"
+            {
+                "id": "SDU",
+                "price": 450
+            },
+            {
+                "id": "GRU",
+                "price": 470
+            },
+            {
+                "id": "RAO",
+                "price": 440
+            },
+            {
+                "id": "GIG",
+                "price": 490
+            },
+            {
+                "id": "MCZ",
+                "price": 460
+            },
+            {
+                "id": "NVT",
+                "price": 480
+            },
+            {
+                "id": "BSB",
+                "price": 510
+            },
+            {
+                "id": "CGB",
+                "price": 470
+            },
+            {
+                "id": "SSA",
+                "price": 490
+            }
         ]
     },
     {
@@ -441,10 +903,22 @@
             "lng": -40.4904
         },
         "destinations": [
-            "FLN",
-            "CNF",
-            "RAO",
-            "CWB"
+            {
+                "id": "FLN",
+                "price": 350
+            },
+            {
+                "id": "CNF",
+                "price": 380
+            },
+            {
+                "id": "RAO",
+                "price": 340
+            },
+            {
+                "id": "CWB",
+                "price": 370
+            }
         ]
     },
     {
@@ -455,9 +929,18 @@
             "lng": -35.3628
         },
         "destinations": [
-            "POA",
-            "CNF",
-            "VCP"
+            {
+                "id": "POA",
+                "price": 360
+            },
+            {
+                "id": "CNF",
+                "price": 380
+            },
+            {
+                "id": "VCP",
+                "price": 350
+            }
         ]
     },
     {
@@ -468,8 +951,14 @@
             "lng": -44.2351
         },
         "destinations": [
-            "SDU",
-            "GIG"
+            {
+                "id": "SDU",
+                "price": 460
+            },
+            {
+                "id": "GIG",
+                "price": 440
+            }
         ]
     },
     {
@@ -480,13 +969,34 @@
             "lng": -38.5323
         },
         "destinations": [
-            "POA",
-            "CWB",
-            "GIG",
-            "SSA",
-            "RBR",
-            "GRU",
-            "SDU"
+            {
+                "id": "POA",
+                "price": 410
+            },
+            {
+                "id": "CWB",
+                "price": 380
+            },
+            {
+                "id": "GIG",
+                "price": 420
+            },
+            {
+                "id": "SSA",
+                "price": 450
+            },
+            {
+                "id": "RBR",
+                "price": 390
+            },
+            {
+                "id": "GRU",
+                "price": 430
+            },
+            {
+                "id": "SDU",
+                "price": 460
+            }
         ]
     },
     {
@@ -497,9 +1007,18 @@
             "lng": -39.2708
         },
         "destinations": [
-            "CXJ",
-            "AJU",
-            "IGU"
+            {
+                "id": "CXJ",
+                "price": 330
+            },
+            {
+                "id": "AJU",
+                "price": 310
+            },
+            {
+                "id": "IGU",
+                "price": 340
+            }
         ]
     },
     {
@@ -510,7 +1029,10 @@
             "lng": -42.8219
         },
         "destinations": [
-            "CXJ"
+            {
+                "id": "CXJ",
+                "price": 310
+            }
         ]
     },
     {
@@ -521,8 +1043,14 @@
             "lng": -60.0497
         },
         "destinations": [
-            "POA",
-            "BZC"
+            {
+                "id": "POA",
+                "price": 390
+            },
+            {
+                "id": "BZC",
+                "price": 420
+            }
         ]
     },
     {
@@ -533,10 +1061,22 @@
             "lng": -48.468889
         },
         "destinations": [
-            "POA",
-            "FLN",
-            "GIG",
-            "BZC"
+            {
+                "id": "POA",
+                "price": 360
+            },
+            {
+                "id": "FLN",
+                "price": 380
+            },
+            {
+                "id": "GIG",
+                "price": 400
+            },
+            {
+                "id": "BZC",
+                "price": 350
+            }
         ]
     },
     {
@@ -547,7 +1087,10 @@
             "lng": -63.902
         },
         "destinations": [
-            "CXJ"
+            {
+                "id": "CXJ",
+                "price": 310
+            }
         ]
     },
     {
@@ -558,7 +1101,10 @@
             "lng": -60.6912
         },
         "destinations": [
-            "SDU"
+            {
+                "id": "SDU",
+                "price": 400
+            }
         ]
     },
     {
@@ -569,7 +1115,10 @@
             "lng": -48.3563
         },
         "destinations": [
-            "CXJ"
+            {
+                "id": "CXJ",
+                "price": 320
+            }
         ]
     },
     {
@@ -580,11 +1129,26 @@
             "lng": -67.8935
         },
         "destinations": [
-            "IGU",
-            "JPA",
-            "GIG",
-            "AJU",
-            "FOR"
+            {
+                "id": "IGU",
+                "price": 330
+            },
+            {
+                "id": "JPA",
+                "price": 310
+            },
+            {
+                "id": "GIG",
+                "price": 340
+            },
+            {
+                "id": "AJU",
+                "price": 320
+            },
+            {
+                "id": "FOR",
+                "price": 350
+            }
         ]
     },
     {
@@ -595,8 +1159,14 @@
             "lng": -51.070278
         },
         "destinations": [
-            "IGU",
-            "AJU"
+            {
+                "id": "IGU",
+                "price": 320
+            },
+            {
+                "id": "AJU",
+                "price": 330
+            }
         ]
     }
 ]
