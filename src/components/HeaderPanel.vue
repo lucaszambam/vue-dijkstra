@@ -75,7 +75,7 @@ export default {
 
         calculateBestRoute() {
             this.toggleMenu();
-            this.$emit('calculate', {
+            this.$emit('computeRouteCost', {
                 origin: this.selectedOrigin,
                 destination: this.selectedDestination
             });
@@ -199,8 +199,8 @@ hr {
     box-shadow: 0 0 0 1px #30363d, 0 16px 32px rgba(1, 4, 9, 0.85);
     transition: left 0.3s ease;
     grid-gap: 15px;
+    z-index: 9999;
 }
-
 
 #menu:not(.hidden) {
     animation: slideInMenu 0.35s forwards;
@@ -297,6 +297,19 @@ button {
 button:hover {
     border-color: #c2c2c2;
     color: white;
+}
+
+@media (max-width: 920px) {
+    h3 {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    #menu {
+        width: 100%;
+        border-radius: 0;
+    }
 }
 
 .button-container {
