@@ -22,10 +22,10 @@ export default {
     methods: {
         initMap() {
             this.map = L.map('map').setView([-14.235, -51.925], 4);
-            
+
             L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
                 minZoom: 4,
-                maxZoom: 8,
+                maxZoom: 15
             }).addTo(this.map);
 
             this.addBrazilBoundaries(this.map);
@@ -64,14 +64,13 @@ export default {
                                                 <li><strong>Longitude</strong>: ${currentAirport.location.lng}</li>
                                             </ul>`;
 
-                currentAirport.destinations.map(function (destination) {
-                    const destinationAirport = airports.find(airport => airport.id === destination.id);
-
-                }, currentAirport);
-
                 for (let j = 0; j < currentAirport.destinations.length; j++) {
                     const destinationAirport = airports.find(airport => airport.id === currentAirport.destinations[j].id);
-                    this.addRoute(currentAirport, destinationAirport);
+                    this.addRoute(currentAirport, destinationAirport, {
+                        color: '#21262d',
+                        weight: 1,
+                        opacity: 0.25
+                    });
                 }
 
                 const marker = L.marker([currentAirport.location.lat, currentAirport.location.lng], {
@@ -90,20 +89,12 @@ export default {
             this.map.addLayer(airportCluster);
         },
 
-        addRoute(origin, destination) {
-            L.polyline([[origin.location, destination.location]], {
-                color: '#21262d',
-                weight: 1,
-                opacity: 0.25
-            }).addTo(this.map);
-        },
+        addRoute(origin, destination, options, popupContent = false) {
+            const route = L.polyline([[origin.location, destination.location]], options).addTo(this.map);
 
-        addShortestRoute(origin, destination) {
-            L.polyline([[origin.location, destination.location]], {
-                color: '#41b883',
-                weight: 5,
-                opacity: 1
-            }).addTo(this.map);
+            if (popupContent) {
+                route.bindPopup(popupContent);
+            }
         },
 
         calculateCheapestPrice(originId, destinationId) {
@@ -140,39 +131,59 @@ export default {
 
                     // Log all flights in the path
                     console.log("Flights:");
-                    for (const flight of shortestPath[destinationId].flights) {
+                    shortestPath[destinationId].flights.map((flight) => {
                         console.log(`From ${flight.origin.lat}, ${flight.origin.lng} to ${flight.destination.lat}, ${flight.destination.lng}`);
-                        this.addShortestRoute({location: {
-                            lat: flight.origin.lat,
-                            lng: flight.origin.lng
-                        }}, {
+                        debugger;
+                        const originLocation = {
+                            location: {
+                                lat: flight.origin.lat,
+                                lng: flight.origin.lng
+                            }
+                        };
+
+                        const destinationLocation = {
                             location: {
                                 lat: flight.destination.lat,
                                 lng: flight.destination.lng,
                             }
-                        });
-                    }
+                        };
+
+                        return {
+                            originLocation,
+                            destinationLocation,
+                            routeOptions: {
+                                color: '#41b883',
+                                weight: 5,
+                                opacity: 1
+                            }
+                        };
+                    }).forEach((route) => {
+                        this.addRoute(route.originLocation, route.destinationLocation, route.routeOptions, 'test');
+                    });
                     break;
                 }
 
                 unvisited.delete(currentId);
                 const currentAirport = airports.find(airport => airport.id === currentId);
 
-                for (const destination of currentAirport.destinations) {
+                currentAirport.destinations.map((destination) => {
                     const neighborId = destination.id;
-                    const neighborAirport = airports.find(airport => airport.id === neighborId);
+                    const neighborAirport = airports.find((airport) => airport.id === neighborId);
                     const tentativeCost = shortestPath[currentId].cost + destination.price;
 
                     if (tentativeCost < shortestPath[neighborId].cost) {
                         // Update shortest path, cost, and flights
                         shortestPath[neighborId].cost = tentativeCost;
                         shortestPath[neighborId].path = [...shortestPath[currentId].path, currentId];
-                        shortestPath[neighborId].flights = [...shortestPath[currentId].flights, {
-                            origin: currentAirport.location,
-                            destination: neighborAirport.location,
-                        }];
+                        shortestPath[neighborId].flights = [
+                            ...shortestPath[currentId].flights,
+                            {
+                                origin: currentAirport.location,
+                                destination: neighborAirport.location,
+                            },
+                        ];
                     }
-                }
+                });
             }
         },
 
