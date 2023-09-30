@@ -10,22 +10,29 @@ import brazilBoundaries from "/src/assets/json/brazilboundaries.json";
 
 export default {
     name: 'Map',
+    props: ['route'],
+    watch: {
+        route: function (routeInput) {
+            this.calculateCheapestPrice(routeInput.origin, routeInput.destination);
+        }
+    },
     mounted() {
         this.initMap();
     },
     methods: {
         initMap() {
-            const map = L.map('map').setView([-14.235, -51.925], 4);
+            this.map = L.map('map').setView([-14.235, -51.925], 4);
+            
             L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
                 minZoom: 4,
                 maxZoom: 8,
-            }).addTo(map);
+            }).addTo(this.map);
 
-            this.addBrazilBoundaries(map);
-            this.addMarkers(map);
+            this.addBrazilBoundaries(this.map);
+            this.addMarkers(this.map);
         },
 
-        addBrazilBoundaries(map) {
+        addBrazilBoundaries() {
             const brazilBoundaryGeoJSON = brazilBoundaries;
             const brazilBoundaryLayer = L.geoJSON(brazilBoundaryGeoJSON, {
                 style: {
@@ -33,14 +40,14 @@ export default {
                     weight: 1,
                     opacity: 0.5
                 }
-            }).addTo(map);
+            }).addTo(this.map);
 
             const bounds = L.latLngBounds(L.latLng(-33.750, -74.910), L.latLng(5.271, -32.794));
-            map.setMaxBounds(bounds);
-            map.fitBounds(brazilBoundaryLayer.getBounds());
+            this.map.setMaxBounds(bounds);
+            this.map.fitBounds(brazilBoundaryLayer.getBounds());
         },
 
-        addMarkers(map) {
+        addMarkers() {
             const airports = airportsData;
             const airportCluster = L.markerClusterGroup({
                 disableClusteringAtZoom: 2
@@ -57,14 +64,14 @@ export default {
                                                 <li><strong>Longitude</strong>: ${currentAirport.location.lng}</li>
                                             </ul>`;
 
-                currentAirport.destinations.map(function (id) {
-                    const destinationAirport = airports.find(airport => airport.id === id);
+                currentAirport.destinations.map(function (destination) {
+                    const destinationAirport = airports.find(airport => airport.id === destination.id);
 
                 }, currentAirport);
 
                 for (let j = 0; j < currentAirport.destinations.length; j++) {
-                    const destinationAirport = airports.find(airport => airport.id === currentAirport.destinations[j]);
-                    this.addRoute(currentAirport, destinationAirport, map);
+                    const destinationAirport = airports.find(airport => airport.id === currentAirport.destinations[j].id);
+                    this.addRoute(currentAirport, destinationAirport);
                 }
 
                 const marker = L.marker([currentAirport.location.lat, currentAirport.location.lng], {
@@ -80,29 +87,104 @@ export default {
                 airportCluster.addLayer(marker);
             }
 
-            map.addLayer(airportCluster);
+            this.map.addLayer(airportCluster);
         },
 
-        addRoute(origin, destination, map) {
-            const polyline = L.polyline([[origin.location, destination.location]], {
+        addRoute(origin, destination) {
+            L.polyline([[origin.location, destination.location]], {
                 color: '#21262d',
                 weight: 1,
                 opacity: 0.25
-            }).addTo(map);
+            }).addTo(this.map);
+        },
 
-            const path = polyline._path;
-            path.classList.add('polyline-route');
+        addShortestRoute(origin, destination) {
+            L.polyline([[origin.location, destination.location]], {
+                color: '#41b883',
+                weight: 5,
+                opacity: 1
+            }).addTo(this.map);
+        },
+
+        calculateCheapestPrice(originId, destinationId) {
+            const airports = airportsData;
+            const shortestPath = {};
+
+            airports.map((airport) => {
+                shortestPath[airport.id] = {
+                    cost: Infinity,
+                    path: [],
+                    flights: [],
+                };
+            });
+            shortestPath[originId].cost = 0;
+
+            const unvisited = new Set(Object.keys(shortestPath));
+
+            while (unvisited.size > 0) {
+                let currentId = null;
+                let currentCost = Infinity;
+
+                for (const id of unvisited) {
+                    if (shortestPath[id].cost < currentCost) {
+                        currentId = id;
+                        currentCost = shortestPath[id].cost;
+                    }
+                }
+
+                if (currentId === destinationId) {
+                    // Found the destination, log the path and cost
+                    console.log(`Shortest path from ${originId} to ${destinationId}:`);
+                    console.log(shortestPath[destinationId].path.join(' -> '));
+                    console.log(`Cost: ${shortestPath[destinationId].cost}`);
+
+                    // Log all flights in the path
+                    console.log("Flights:");
+                    for (const flight of shortestPath[destinationId].flights) {
+                        console.log(`From ${flight.origin.lat}, ${flight.origin.lng} to ${flight.destination.lat}, ${flight.destination.lng}`);
+                        this.addShortestRoute({location: {
+                            lat: flight.origin.lat,
+                            lng: flight.origin.lng
+                        }}, {
+                            location: {
+                                lat: flight.destination.lat,
+                                lng: flight.destination.lng,
+                            }
+                        });
+                    }
+                    break;
+                }
+
+                unvisited.delete(currentId);
+                const currentAirport = airports.find(airport => airport.id === currentId);
+
+                for (const destination of currentAirport.destinations) {
+                    const neighborId = destination.id;
+                    const neighborAirport = airports.find(airport => airport.id === neighborId);
+                    const tentativeCost = shortestPath[currentId].cost + destination.price;
+
+                    if (tentativeCost < shortestPath[neighborId].cost) {
+                        // Update shortest path, cost, and flights
+                        shortestPath[neighborId].cost = tentativeCost;
+                        shortestPath[neighborId].path = [...shortestPath[currentId].path, currentId];
+                        shortestPath[neighborId].flights = [...shortestPath[currentId].flights, {
+                            origin: currentAirport.location,
+                            destination: neighborAirport.location,
+                        }];
+                    }
+                }
+            }
         },
 
         validateAirportsData(airports) {
             for (const originAirport of airports) {
-                for (const destinationCode of originAirport.destinations) {
-                    const destinationAirport = airports.find(airport => airport.id === destinationCode);
+                for (const destination of originAirport.destinations) {
+                    const destinationAirport = airports.find(airport => airport.id === destination.id);
 
                     if (!destinationAirport) {
-                        console.error(`O aeroporto de destino ${destinationCode} não foi encontrado.`);
-                    } else if (!destinationAirport.destinations.includes(originAirport.id)) {
-                        console.error(`O aeroporto ${originAirport.id} não está listado como destino em ${destinationCode}.`);
+                        console.error(`O aeroporto de destino ${destination.id} não foi encontrado.`);
+                    } else if (!destinationAirport.destinations.find(destination => destination.id === originAirport.id)) {
+                        console.error(`O aeroporto ${originAirport.id} não está listado como destino em ${destination.id}.`);
                     }
                 }
             }
@@ -116,12 +198,16 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 #map {
-    width: 45rem;
-    height: 45rem;
-    border-radius: .5rem;
+    max-width: 50rem;
+    max-height: 45rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
 }
 
 .marker-container {
