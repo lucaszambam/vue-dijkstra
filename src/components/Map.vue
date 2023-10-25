@@ -76,7 +76,7 @@ export default {
                 const marker = L.marker([currentAirport.location.lat, currentAirport.location.lng], {
                     icon: new L.DivIcon({
                         className: 'marker-icon',
-                        html: `<div class="marker-container">
+                        html: `<div class="marker-container" data-lat="${currentAirport.location.lat}" data-lng="${currentAirport.location.lng}">
                                     <div class="marker-image"></div>
                                     <span class="marker-span">${currentAirport.id}</span>
                                 </div>`
@@ -90,6 +90,7 @@ export default {
         },
 
         addRoute(origin, destination, options, popupContent = false) {
+            options.className = options.className + ' route-line';
             const route = L.polyline([[origin.location, destination.location]], options).addTo(this.map);
 
             if (popupContent) {
@@ -133,7 +134,6 @@ export default {
                     console.log("Flights:");
                     shortestPath[destinationId].flights.map((flight) => {
                         console.log(`From ${flight.origin.lat}, ${flight.origin.lng} to ${flight.destination.lat}, ${flight.destination.lng}`);
-                        debugger;
                         const originLocation = {
                             location: {
                                 lat: flight.origin.lat,
@@ -154,12 +154,24 @@ export default {
                             routeOptions: {
                                 color: '#41b883',
                                 weight: 5,
-                                opacity: 1
+                                opacity: 1,
+                                className: 'in-route'
                             }
                         };
-                    }).forEach((route) => {
+                    }).forEach((route, index) => {
                         this.addRoute(route.originLocation, route.destinationLocation, route.routeOptions, 'test');
+                        const originAirportMarker = document.querySelector(`.marker-container[data-lat="${route.originLocation.location.lat}"][data-lng="${route.originLocation.location.lng}"]`);
+                        const destinationAirportMarker = document.querySelector(`.marker-container[data-lat="${route.destinationLocation.location.lat}"][data-lng="${route.destinationLocation.location.lng}"]`);
+
+                        if (originAirportMarker && destinationAirportMarker) {
+                            originAirportMarker.classList.add('in-route');
+                            originAirportMarker.setAttribute('data-route-index', index);
+
+                            destinationAirportMarker.classList.add('in-route');
+                            destinationAirportMarker.setAttribute('data-route-index', index + 1);
+                        }
                     });
+                    document.querySelector('html').classList.add('calculated-route');
                     break;
                 }
 
@@ -226,6 +238,28 @@ export default {
     grid-template-rows: 1fr 1fr;
     width: max-content;
     text-align: center;
+}
+
+.marker-container.in-route .marker-image,
+.marker-container.in-route .marker-span {
+    background-color: red;
+}
+
+.leaflet-marker-icon:has(.marker-container.in-route) {
+    z-index: 99999 !important;
+}
+
+.calculated-route .marker-container:not(.in-route) .marker-image,
+.calculated-route .marker-container:not(.in-route) .marker-span {
+    opacity: 0.30;
+}
+
+.calculated-route .marker-container:not(.in-route) {
+    transform: scale(0.9);
+}
+
+.calculated-route .route-line:not(.in-route) {
+    opacity: 0;
 }
 
 .marker-image {
