@@ -66,11 +66,17 @@ export default {
 
                 for (let j = 0; j < currentAirport.destinations.length; j++) {
                     const destinationAirport = airports.find(airport => airport.id === currentAirport.destinations[j].id);
+                    const popupContent = {
+                        text:`<b>${currentAirport.id}</b> -> <b>${destinationAirport.id}</b> <br>
+                              <b>PRICE</b>: ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(currentAirport.destinations[j].price)}`,
+                        autoOpen: false,
+                        autoClose: true,
+                    };
                     this.addRoute(currentAirport, destinationAirport, {
                         color: '#21262d',
                         weight: 1,
                         opacity: 0.25
-                    });
+                    }, popupContent);
                 }
 
                 const marker = L.marker([currentAirport.location.lat, currentAirport.location.lng], {
@@ -94,7 +100,10 @@ export default {
             const route = L.polyline([[origin.location, destination.location]], options).addTo(this.map);
 
             if (popupContent) {
-                route.bindPopup(popupContent);
+                route.bindPopup(popupContent.text, {autoClose: popupContent.autoClose});
+                if (popupContent.autoOpen) {
+                    route.openPopup();
+                }
             }
         },
 
@@ -159,7 +168,15 @@ export default {
                             }
                         };
                     }).forEach((route, index) => {
-                        this.addRoute(route.originLocation, route.destinationLocation, route.routeOptions, 'test');
+                        const originAirport = airports.find(airport => airport.location.lat === route.originLocation.location.lat && airport.location.lng === route.originLocation.location.lng);
+                        const destinationAirport = airports.find(airport => airport.location.lat === route.destinationLocation.location.lat && airport.location.lng === route.destinationLocation.location.lng);
+                        const popupContent = {
+                            text:`<b>${originAirport.id}</b> -> <b>${destinationAirport.id}</b> <br>
+                                  <b>PRICE</b>: ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(originAirport.destinations.find(destination => destination.id === destinationAirport.id).price)}`,
+                            autoOpen: true,
+                            autoClose: false
+                        };
+                        this.addRoute(route.originLocation, route.destinationLocation, route.routeOptions, popupContent);
                         const originAirportMarker = document.querySelector(`.marker-container[data-lat="${route.originLocation.location.lat}"][data-lng="${route.originLocation.location.lng}"]`);
                         const destinationAirportMarker = document.querySelector(`.marker-container[data-lat="${route.destinationLocation.location.lat}"][data-lng="${route.destinationLocation.location.lng}"]`);
 
@@ -242,7 +259,7 @@ export default {
 
 .marker-container.in-route .marker-image,
 .marker-container.in-route .marker-span {
-    background-color: red;
+    background-color: #41b883;
 }
 
 .leaflet-marker-icon:has(.marker-container.in-route) {
