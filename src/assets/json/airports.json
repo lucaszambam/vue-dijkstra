@@ -9,7 +9,7 @@
         "destinations": [
             {
                 "id": "GRU",
-                "price": 300
+                "price": 600
             },
             {
                 "id": "GYN",
@@ -41,7 +41,7 @@
             },
             {
                 "id": "FOR",
-                "price": 550
+                "price": 250
             },
             {
                 "id": "MAO",
@@ -991,7 +991,7 @@
             },
             {
                 "id": "GRU",
-                "price": 430
+                "price": 250
             },
             {
                 "id": "SDU",
