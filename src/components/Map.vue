@@ -16,6 +16,14 @@ export default {
             this.calculateCheapestPrice(routeInput.origin, routeInput.destination);
         }
     },
+    data() {
+        return {
+            minLat: Infinity,
+            maxLat: -Infinity,
+            minLng: Infinity,
+            maxLng: -Infinity
+        }
+    },
     mounted() {
         this.initMap();
     },
@@ -57,18 +65,39 @@ export default {
 
             for (let i = 0; i < airports.length; i++) {
                 const currentAirport = airports[i];
-                const markerPopupContent = `<strong>${currentAirport.id}</strong><br>
-                                            <span>${currentAirport.name}</span><br>
-                                            <ul>
-                                                <li><strong>Latitude</strong>: ${currentAirport.location.lat}</li>
-                                                <li><strong>Longitude</strong>: ${currentAirport.location.lng}</li>
-                                            </ul>`;
+                const markerPopupContent = `<div class="popup-airport-info">
+                                                <fieldset>
+                                                    <legend>Airport</legend>
+                                                    <strong>${currentAirport.id}</strong><br>
+                                                    <span>${currentAirport.name}</span><br>
+                                                </fieldset>
+                                                <fieldset>
+                                                    <legend>Location</legend>
+                                                    <ul>
+                                                        <li><strong>Latitude</strong>: ${currentAirport.location.lat}</li>
+                                                        <li><strong>Longitude</strong>: ${currentAirport.location.lng}</li>
+                                                    </ul>
+                                                </fieldset>
+                                                
+                                                <fieldset>
+                                                    <legend>Destinations</legend>
+                                                    <ul>
+                                                        ${currentAirport.destinations.map(item => `<li>
+                                                                                                      <b>${item.id}</b> - PRICE: ${Intl.NumberFormat('en-US', {
+                                                                                                            style: 'currency',
+                                                                                                            currency: 'USD' }).format(item.price)}
+                                                                                                   </li>`).join('')}
+                                                    <ul>
+                                                </fieldset>
+                                            </div>`;
 
                 for (let j = 0; j < currentAirport.destinations.length; j++) {
                     const destinationAirport = airports.find(airport => airport.id === currentAirport.destinations[j].id);
                     const popupContent = {
-                        text:`<b>${currentAirport.id}</b> -> <b>${destinationAirport.id}</b> <br>
-                              <b>PRICE</b>: ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(currentAirport.destinations[j].price)}`,
+                        text:`<fieldset>
+                                <legend><b>${currentAirport.id}</b> -> <b>${destinationAirport.id}</b></legend>
+                                <b>PRICE</b>: ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(currentAirport.destinations[j].price)}
+                              </fieldset>`,
                         autoOpen: false,
                         autoClose: true,
                     };
@@ -134,12 +163,10 @@ export default {
                 }
 
                 if (currentId === destinationId) {
-                    // Found the destination, log the path and cost
                     console.log(`Shortest path from ${originId} to ${destinationId}:`);
                     console.log(shortestPath[destinationId].path.join(' -> '));
                     console.log(`Cost: ${shortestPath[destinationId].cost}`);
 
-                    // Log all flights in the path
                     console.log("Flights:");
                     shortestPath[destinationId].flights.map((flight) => {
                         console.log(`From ${flight.origin.lat}, ${flight.origin.lng} to ${flight.destination.lat}, ${flight.destination.lng}`);
@@ -171,8 +198,11 @@ export default {
                         const originAirport = airports.find(airport => airport.location.lat === route.originLocation.location.lat && airport.location.lng === route.originLocation.location.lng);
                         const destinationAirport = airports.find(airport => airport.location.lat === route.destinationLocation.location.lat && airport.location.lng === route.destinationLocation.location.lng);
                         const popupContent = {
-                            text:`<b>${originAirport.id}</b> -> <b>${destinationAirport.id}</b> <br>
-                                  <b>PRICE</b>: ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(originAirport.destinations.find(destination => destination.id === destinationAirport.id).price)}`,
+                            text:`<fieldset>
+                                    <legend>Flight ${index + 1}</legend>
+                                    <b>${originAirport.id}</b> -> <b>${destinationAirport.id}</b> <br>
+                                    <b>PRICE</b>: ${Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(originAirport.destinations.find(destination => destination.id === destinationAirport.id).price)}
+                                  </fieldset>`,
                             autoOpen: true,
                             autoClose: false
                         };
@@ -187,8 +217,16 @@ export default {
                             destinationAirportMarker.classList.add('in-route');
                             destinationAirportMarker.setAttribute('data-route-index', index + 1);
                         }
+
+                        this.minLat = Math.min(this.minLat, route.originLocation.location.lat);
+                        this.maxLat = Math.max(this.maxLat, route.originLocation.location.lat);
+                        this.minLng = Math.min(this.minLng, route.destinationLocation.location.lng);
+                        this.maxLng = Math.max(this.maxLng, route.destinationLocation.location.lng);
                     });
                     document.querySelector('html').classList.add('calculated-route');
+                    if (this.minLat !== Infinity && this.maxLat !== -Infinity && this.minLng !== Infinity && this.maxLng !== -Infinity) {
+                        this.map.fitBounds([[this.minLat, this.minLng], [this.maxLat, this.maxLng]]);
+                    }
                     break;
                 }
 
@@ -201,7 +239,6 @@ export default {
                     const tentativeCost = shortestPath[currentId].cost + destination.price;
 
                     if (tentativeCost < shortestPath[neighborId].cost) {
-                        // Update shortest path, cost, and flights
                         shortestPath[neighborId].cost = tentativeCost;
                         shortestPath[neighborId].path = [...shortestPath[currentId].path, currentId];
                         shortestPath[neighborId].flights = [
@@ -311,5 +348,8 @@ export default {
 .leaflet-popup-content {
     font-family: 'Roboto Mono';
     font-weight: 500;
+}
+.popup-airport-info ul {
+    margin: 0;
 }
 </style>
